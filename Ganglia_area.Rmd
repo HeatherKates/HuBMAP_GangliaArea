@@ -1,0 +1,131 @@
+---
+title: "Effect of disease status on ganglia area"
+author: "Heather Kates"
+date: "2024-08-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(lme4)
+library(lmerTest)
+library(broom)
+library(kableExtra)
+```
+
+# Ganglia Area Analysis
+
+This analysis evaluates the effect of `Disease.Status` on `log_Ganglia_Area` using different mixed-effects models. The goal is to identify the best model based on AIC/BIC, and assess the significance of `Disease.Status` after accounting for random effects of `CaseID` and `Slide.Age`.
+
+## Data Loading and Preprocessing
+
+Load the dataset and perform basic data cleaning. The CaseID column is filtered to remove any empty entries, and the column names are cleaned for easier manipulation.
+
+```{r read data}
+data <- read.csv("data/HuBMAP_ganglia_data.csv")
+data <- data %>% filter(!CaseID == "")
+colnames(data) <- gsub("\\.\\.","\\.",colnames(data))
+colnames(data) <- gsub("\\.\\.","\\.",colnames(data))
+```
+
+## Summary Table
+
+Create a summary table that includes the number of ganglia, average ganglia area, and the number of unique Slide.Age levels per CaseID.
+
+```{r}
+summary_table <- data %>%
+  group_by(CaseID, Disease.Status) %>%
+  summarize(
+    n = n(),
+    avg_ganglia = mean(Ganglia.Area.µm.2.),
+    unique_slide_age_count = n_distinct(Slide.Age)
+  ) %>%
+  ungroup()
+```
+
+## Variance Transformation
+
+Due to high variance in Ganglia.Area.µm.2., the data is transformed by taking the logarithm of the ganglia area.
+
+```{r}
+var(data$Ganglia.Area.µm.2.)
+data$log_Ganglia_Area <- log(data$Ganglia.Area.µm.2. + 1) # Log transform to reduce variance
+```
+
+## Model Fitting
+
+Fit four models to the data, including models with and without random effects for CaseID and Slide.Age.
+
+```{r}
+# Model 1: No random effects
+NoRandom <- lm(log_Ganglia_Area ~ Disease.Status, data = data)
+
+# Model 2: Random intercept for CaseID only
+CaseID <- lmer(log_Ganglia_Area ~ Disease.Status + (1 | CaseID), data = data)
+
+# Model 3: Random intercept for Slide.Age only
+SlideAge <- lmer(log_Ganglia_Area ~ Disease.Status + (1 | Slide.Age), data = data)
+
+# Model 4: Random intercept for both CaseID and Slide.Age
+CaseID_SlideAge <- lmer(log_Ganglia_Area ~ Disease.Status + (1 | CaseID) + (1 | Slide.Age), data = data)
+```
+
+## Model Summaries
+
+Examine the summaries of the fitted models to understand the estimates and random effects.
+
+```{r}
+print(CaseID)
+print(SlideAge)
+print(CaseID_SlideAge)
+```
+
+## Model Comparison
+
+Compare the models using AIC and BIC to determine which model fits the data best. Additionally, perform Likelihood Ratio Tests (LRT) to assess the significance of adding random effects.
+
+```{r}
+# AIC and BIC comparison
+aic_values <- data.frame(AIC(CaseID, SlideAge, CaseID_SlideAge)) %>% arrange(AIC)
+bic_values <- data.frame(BIC(CaseID, SlideAge, CaseID_SlideAge)) %>% arrange(BIC)
+aic_values
+bic_values
+
+# Likelihood Ratio Tests
+anova(CaseID, CaseID_SlideAge) # Insignificant, CaseID has lower AIC/BIC
+anova(SlideAge, CaseID_SlideAge) # Significant, CaseID_SlideAge has lower logLik; CaseID_SlideAge has lower AIC, SlideAge has lower BIC
+```
+
+## Final Model Evaluation
+
+Summarize the key findings from the fitted models, focusing on the significance of Disease.Status and the validity of each model.
+
+```{r}
+summary(NoRandom) # Disease.Status is not significant
+summary(CaseID) # Disease.Status is not significant
+summary(SlideAge) # Disease.Status is significant
+summary(CaseID_SlideAge) # Boundary singular fit error
+```
+
+Look at overall model significance
+
+```{r,echo=FALSE}
+# Function to tidy ANOVA output and format as a table
+tidy_anova <- function(model) {
+  tidy(anova(model)) %>%
+    kable() %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+}
+```
+
+```{r,warning=FALSE}
+tidy_anova(NoRandom) # Disease.Status is not significant
+tidy_anova(CaseID) # Disease.Status is not significant
+tidy_anova(SlideAge) # Disease.Status is significant
+tidy_anova(CaseID_SlideAge) # Boundary singular fit error
+```
+
+## Conclusion
+
+# The CaseID model is identified as the best model, offering the lowest AIC/BIC and no significant improvement from adding Slide.Age. The fixed effects of Disease.Status are not significant in the CaseID model, and the intercept reflects the baseline level of log_Ganglia_Area on the log scale.
