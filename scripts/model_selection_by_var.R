@@ -19,6 +19,10 @@ analyze_dependent_variable <- function(dependent_variable) {
   #Remove other-diabetes donors
   data <- data %>% filter(!Disease.Status=="Other-Diabetes")
   
+  #Remove ganglia names as per Sam
+  data <- data[!grepl("Periductal Ganglia", data$Ganglia.Name), ]
+  data <- data[!grepl("Myenteric Plexus", data$Ganglia.Name), ]
+
   # Summarize the data
   summary_table <- data %>%
     group_by(CaseID, Disease.Status) %>%

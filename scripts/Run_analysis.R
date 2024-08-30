@@ -14,13 +14,13 @@ analyze_dependent_variable("TH.Coverage")
 library(openxlsx)
 
 # Define the directory containing the CSV files
-files <- list.files(path = "results/results_tables/", pattern = "*_model_results.csv", full.names = TRUE)
+files <- list.files(path = "results/results_tables/", pattern = paste0(".*",Sys.Date(),".*\\.csv"), full.names = TRUE)
 # Create a new workbook
 wb <- createWorkbook()
 # Loop through each file
 for (file in files) {
   # Extract the sheet name from the filename
-  sheet_name <- gsub("_model_results.csv$", "", basename(file))
+  sheet_name <- gsub(paste0("_model_results",Sys.Date(),".csv$"), "", basename(file))
   # Read the CSV file
   data <- read.csv(file)
   # Add a new sheet to the workbook
