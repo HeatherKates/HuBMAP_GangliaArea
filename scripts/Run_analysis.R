@@ -29,7 +29,7 @@ for (file in files) {
   writeData(wb, sheet = sheet_name, x = data)
 }
 # Save the workbook
-saveWorkbook(wb, file = "results/results_tables/combined_results.xlsx", overwrite = TRUE)
+saveWorkbook(wb, file = paste0("results/results_tables/combined_results.",Sys.Date(),".xlsx"), overwrite = TRUE)
 
 #Powerpoint
 # Define the main directory containing the subdirectories with PNG files
@@ -53,7 +53,7 @@ for (subdir in subdirs) {
             location = ph_location_type(type = "title"))
   
   # List all PNG files in the current subdirectory
-  png_files <- list.files(subdir, pattern = "\\.png$", full.names = TRUE)
+  png_files <- list.files(subdir, pattern = paste0(".*",Sys.Date(),".*\\.png$"), full.names = TRUE)
   
   # Loop through each PNG file and add it as a slide
   for (png_file in png_files) {
@@ -63,7 +63,7 @@ for (subdir in subdirs) {
 }
 
 # Define the output PowerPoint file path in the main directory
-output_pptx <- paste0(main_dir, "combined_plots.pptx")
+output_pptx <- paste0(main_dir, "combined_plots.",Sys.Date(),".pptx")
 
 # Save the PowerPoint presentation
 print(ppt, target = output_pptx)

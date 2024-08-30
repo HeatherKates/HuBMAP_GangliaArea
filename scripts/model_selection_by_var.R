@@ -136,7 +136,7 @@ analyze_dependent_variable <- function(dependent_variable) {
   )
   results_table <- results_table %>% dplyr::arrange(Model_Fit_Rank)
   # Write the results table to a CSV file
-  write.csv(results_table, file = paste0("results/results_tables/", cleaned_dependent_variable, "_model_results.csv"), row.names = FALSE)
+  write.csv(results_table, file = paste0("results/results_tables/", cleaned_dependent_variable, "_model_results",Sys.Date(),".csv"), row.names = FALSE)
   
   # Generate and save plots
   effects <- c(random_effects, "Disease.Status")
@@ -177,7 +177,7 @@ analyze_dependent_variable <- function(dependent_variable) {
     if (i %% plots_per_page == 0 || i == length(effects)) {
       file_num <- ceiling(i / plots_per_page)
       grid_plot <- do.call(grid.arrange, c(plot_list[((file_num - 1) * plots_per_page + 1):i], ncol = 2, nrow = 2))
-      ggsave(filename = paste0("results/plots/",cleaned_dependent_variable,"/",cleaned_dependent_variable, "_plots_page_", file_num, ".png"), plot = grid_plot, dpi = 300, width = 14, height = 10)
+      ggsave(filename = paste0("results/plots/",cleaned_dependent_variable,"/",cleaned_dependent_variable,Sys.Date(),"_plots_page_", file_num, ".png"), plot = grid_plot, dpi = 300, width = 14, height = 10)
       plot_list <- list()
     }
   }

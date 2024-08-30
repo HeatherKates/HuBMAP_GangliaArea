@@ -1,0 +1,30 @@
+"Dependent.Variable","Model","Fixed_Effect","Random_Effects","Model_Fit_Rank","Model_Likelihood_Rank","Significance_of_Fixed_Effect"
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Slide.Age) + (1 | CaseID)","Disease.Status","Slide.Age, CaseID",1.5,1.5,0.4282
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | CaseID) + (1 | Slide.Age)","Disease.Status","CaseID, SlideAge",1.5,1.5,0.4282
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Donor.Age) + (1 | Slide.Age)","Disease.Status","Donor.Age, Slide.Age",3,3,0.4208
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | CaseID)","Disease.Status","CaseID",4,5,0.1411
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | T1D_Duration_Binned) +      (1 | CaseID)","Disease.Status","T1D, Duration, Binned, CaseID",5,4,0.3942
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      CaseID)","Disease.Status","Tissue.Region, CaseID",6,6,0.1411
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Donor.Age) + (1 | CaseID)","Disease.Status","Donor.Age, CaseID",7,7,0.1411
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Ganglia.Type) + (1 |      CaseID)","Disease.Status","Ganglia.Type, CaseID",8,8,0.1411
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Donor.Age)","Disease.Status","Donor.Age",9,11,0.0709
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Donor.Age) + (1 | Ganglia.Type)","Disease.Status","Donor.Age, Ganglia.Type",10,9,0.0711
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Donor.Age) + (1 | T1D_Duration_Binned)","Disease.Status","Donor.Age, T1D, Duration, Binned",11,10,0.0709
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      Donor.Age)","Disease.Status","Tissue.Region, Donor.Age",12,12,0.0709
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | T1D_Duration_Binned) +      (1 | Slide.Age)","Disease.Status","T1D, Duration, Binned, Slide.Age",13,13,0.2074
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Slide.Age)","Disease.Status","Slide.Age",14,15,0.0298
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      Slide.Age)","Disease.Status","Tissue.Region, Slide.Age",15,14,0.0298
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Slide.Age) + (1 | Ganglia.Type)","Disease.Status","Slide.Age, Ganglia.Type",16,16,0.0298
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status","Disease.Status","None",17,17,0.0243
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | T1D_Duration_Binned)","Disease.Status","T1D, Duration, Binned",18,19,0.5045
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      T1D_Duration_Binned)","Disease.Status","Tissue.Region, T1D, Duration, Binned",19,18,0.5496
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | T1D_Duration_Binned) +      (1 | Ganglia.Type)","Disease.Status","T1D, Duration, Binned, Ganglia.Type",20,20,0.5045
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Tissue.Region)","Disease.Status","Tissue.Region",21,21,0.0207
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Ganglia.Type)","Disease.Status","Ganglia.Type",22,23,0.0243
+"nNOS.Coverage","log_nNOS.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      Ganglia.Type)","Disease.Status","Tissue.Region, Ganglia.Type",23,22,0.0207
+"nNOS.Coverage","log_nNOS.Coverage ~ Tissue.Region","Tissue.Region","None",NA,NA,0.0486
+"nNOS.Coverage","log_nNOS.Coverage ~ Donor.Age","Donor.Age","None",NA,NA,0.0048
+"nNOS.Coverage","log_nNOS.Coverage ~ T1D_Duration_Binned","T1D_Duration_Binned","None",NA,NA,0.0015
+"nNOS.Coverage","log_nNOS.Coverage ~ Slide.Age","Slide.Age","None",NA,NA,0
+"nNOS.Coverage","log_nNOS.Coverage ~ Ganglia.Type","Ganglia.Type","None",NA,NA,0.9275
+"nNOS.Coverage","log_nNOS.Coverage ~ CaseID","CaseID","None",NA,NA,0
