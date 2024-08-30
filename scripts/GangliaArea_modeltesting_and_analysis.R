@@ -114,7 +114,7 @@ results_table <- data.frame(
 )
 
 #write results table
-write.csv(results_table,file="results/model_results.csv",row.names = FALSE)
+write.csv(results_table,file="results/Ganglia.area_model_results.csv",row.names = FALSE)
 
 ##Plots
 # Create a boxplot of log_Ganglia_Area by CaseID
@@ -124,7 +124,7 @@ boxplot_plot <- ggplot(data, aes(x = CaseID, y = log_Ganglia_Area, fill = CaseID
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +  # Rotate x-axis labels for readability
   scale_fill_discrete(name = "CaseID")
-ggsave(plot = boxplot_plot, "results/area_by_CaseID_boxplot.png",dpi = 300,width = 10,height = 8)
+ggsave(plot = boxplot_plot, "results/Ganglia.area_by_CaseID_boxplot.png",dpi = 300,width = 10,height = 8)
 
 # Create a boxplot of log_Ganglia_Area by CaseID
 boxplot_slidAge <- ggplot(data, aes(x = as.factor(Slide.Age), y = log_Ganglia_Area, fill = as.factor(Slide.Age))) +
@@ -133,7 +133,7 @@ boxplot_slidAge <- ggplot(data, aes(x = as.factor(Slide.Age), y = log_Ganglia_Ar
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +  # Rotate x-axis labels for readability
   scale_fill_discrete(name = "Slide Age")
-ggsave(plot = boxplot_slidAge, "results/area_by_SlideAge_boxplot.png",dpi = 300,width = 10,height = 8)
+ggsave(plot = boxplot_slidAge, "results/Ganglia.area_by_SlideAge_boxplot.png",dpi = 300,width = 10,height = 8)
 
 # Create a boxplot of log_Ganglia_Area by CaseID
 boxplot_slidAge <- ggplot(data, aes(x = as.factor(Slide.Age), y = log_Ganglia_Area, fill = as.factor(Slide.Age))) +
@@ -142,7 +142,7 @@ boxplot_slidAge <- ggplot(data, aes(x = as.factor(Slide.Age), y = log_Ganglia_Ar
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +  # Rotate x-axis labels for readability
   scale_fill_discrete(name = "Slide Age")
-ggsave(plot = boxplot_slidAge, "results/area_by_SlideAge_boxplot.png",dpi = 300,width = 10,height = 8)
+ggsave(plot = boxplot_slidAge, "results/Gangle.area_by_SlideAge_boxplot.png",dpi = 300,width = 10,height = 8)
 
 boxplot_disease <- ggplot(data, aes(x = Disease.Status, y = log_Ganglia_Area, fill = Disease.Status)) +
   geom_boxplot() +
@@ -150,5 +150,5 @@ boxplot_disease <- ggplot(data, aes(x = Disease.Status, y = log_Ganglia_Area, fi
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +  # Rotate x-axis labels for readability
   scale_fill_discrete(name = "Slide Age")
-ggsave(plot = boxplot_slidAge, "results/area_by_Disease.Status_boxplot.png",dpi = 300,width = 10,height = 8)
+ggsave(plot = boxplot_disease, "results/area_by_Disease.Status_boxplot.png",dpi = 300,width = 10,height = 8)
 

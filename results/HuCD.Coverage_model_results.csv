@@ -1,0 +1,30 @@
+"Model","Fixed_Effect","Random_Effects","Model_Fit_Rank","Model_Likelihood_Rank","Significance_of_Fixed_Effect"
+"Tissue.Region","Disease.Status","Tissue.Region",23,23,0.9914
+"Tissue.Region_Donor.Age","Disease.Status","Tissue.Region, Donor.Age",8,6,0.6981
+"Tissue.Region_T1D_Duration_Binned","Disease.Status","Tissue.Region, T1D, Duration, Binned",19,19,0.9848
+"Tissue.Region_Slide.Age","Disease.Status","Tissue.Region, Slide.Age",15,14,0.047
+"Tissue.Region_Ganglia.Type","Disease.Status","Tissue.Region, Ganglia.Type",21,21,0.9732
+"Tissue.Region_CaseID","Disease.Status","Tissue.Region, CaseID",9,7,0.5674
+"Donor.Age","Disease.Status","Donor.Age",6,11,0.7781
+"Donor.Age_T1D_Duration_Binned","Disease.Status","Donor.Age, T1D, Duration, Binned",12,12,0.7781
+"Donor.Age_Slide.Age","Disease.Status","Donor.Age, Slide.Age",7,5,0.8885
+"Donor.Age_Ganglia.Type","Disease.Status","Donor.Age, Ganglia.Type",2,2,0.7479
+"Donor.Age_CaseID","Disease.Status","Donor.Age, CaseID",10,8,0.579
+"T1D_Duration_Binned","Disease.Status","T1D, Duration, Binned",20,20,0.9992
+"T1D_Duration_Binned_Slide.Age","Disease.Status","T1D, Duration, Binned, Slide.Age",16,15,0.3582
+"T1D_Duration_Binned_Ganglia.Type","Disease.Status","T1D, Duration, Binned, Ganglia.Type",18,17,0.9861
+"T1D_Duration_Binned_CaseID","Disease.Status","T1D, Duration, Binned, CaseID",11,10,0.579
+"Slide.Age","Disease.Status","Slide.Age",14,16,0.076
+"Slide.Age_Ganglia.Type","Disease.Status","Slide.Age, Ganglia.Type",13,13,0.0848
+"Slide.Age_CaseID","Disease.Status","Slide.Age, CaseID",3,3,0.8023
+"Ganglia.Type","Disease.Status","Ganglia.Type",22,22,0.9862
+"Ganglia.Type_CaseID","Disease.Status","Ganglia.Type, CaseID",1,1,0.5317
+"CaseID","Disease.Status","CaseID",5,9,0.579
+"NoRandom","Disease.Status","None",17,18,0.9996
+"CaseID_SlideAge","Disease.Status","CaseID, SlideAge",3,3,0.8023
+"Tissue.Region","Tissue.Region","None",NA,NA,0.0375
+"Donor.Age","Donor.Age","None",NA,NA,0
+"T1D_Duration_Binned","T1D_Duration_Binned","None",NA,NA,0.0013
+"Slide.Age","Slide.Age","None",NA,NA,0
+"Ganglia.Type","Ganglia.Type","None",NA,NA,0.0048
+"CaseID","CaseID","None",NA,NA,0
