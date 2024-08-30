@@ -16,6 +16,9 @@ analyze_dependent_variable <- function(dependent_variable) {
   colnames(data) <- gsub("\\.\\.","\\.", colnames(data))
   colnames(data) <- gsub("\\.\\.","\\.", colnames(data))
   
+  #Remove other-diabetes donors
+  data <- data %>% filter(!Disease.Status=="Other-Diabetes")
+  
   # Summarize the data
   summary_table <- data %>%
     group_by(CaseID, Disease.Status) %>%
@@ -41,9 +44,9 @@ analyze_dependent_variable <- function(dependent_variable) {
   
   # Bin T1D.Duration into categories
   data$T1D_Duration_Binned <- gsub("^0$", "Onset", data$T1D.Duration)
+  data$T1D_Duration_Binned <- gsub("^1$", "Onset", data$T1D_Duration_Binned)
   data$T1D_Duration_Binned[is.na(data$T1D_Duration_Binned)] <- "None"
-  data$T1D_Duration_Binned[data$T1D.Duration > 0 & data$T1D.Duration < 11] <- "Short"
-  data$T1D_Duration_Binned[data$T1D.Duration >= 11] <- "Long"
+  data$T1D_Duration_Binned[data$T1D.Duration > 1] <- "Pre-existing"
   data$T1D_Duration_Binned <- as.factor(data$T1D_Duration_Binned)
   
   # Filter out random effects with only one level
