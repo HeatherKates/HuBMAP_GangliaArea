@@ -1,0 +1,30 @@
+"Dependent.Variable","Model","Fixed_Effect","Random_Effects","Model_Fit_Rank","Model_Likelihood_Rank","Significance_of_Fixed_Effect"
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Donor.Age)","Disease.Status","Donor.Age",1,2,0.5034
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Donor.Age) +      (1 | Slide.Age)","Disease.Status","Donor.Age, Slide.Age",2,1,0.6595
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Donor.Age) +      (1 | Ganglia.Type)","Disease.Status","Donor.Age, Ganglia.Type",3,3,0.5034
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Donor.Age) +      (1 | CaseID)","Disease.Status","Donor.Age, CaseID",4,4,0.5034
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Donor.Age) +      (1 | T1D_Duration_Binned)","Disease.Status","Donor.Age, T1D, Duration, Binned",5,5,0.5034
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Tissue.Region) +      (1 | Donor.Age)","Disease.Status","Tissue.Region, Donor.Age",6,6,0.5034
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | CaseID)","Disease.Status","CaseID",7,9,0.4343
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Slide.Age) +      (1 | CaseID)","Disease.Status","Slide.Age, CaseID",8.5,7.5,0.6617
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | CaseID) +      (1 | Slide.Age)","Disease.Status","CaseID, SlideAge",8.5,7.5,0.6617
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Ganglia.Type) +      (1 | CaseID)","Disease.Status","Ganglia.Type, CaseID",10,10,0.4343
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | T1D_Duration_Binned) +      (1 | CaseID)","Disease.Status","T1D, Duration, Binned, CaseID",11,11,0.4343
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Tissue.Region) +      (1 | CaseID)","Disease.Status","Tissue.Region, CaseID",12,12,0.4343
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | T1D_Duration_Binned) +      (1 | Slide.Age)","Disease.Status","T1D, Duration, Binned, Slide.Age",13,13,0.5156
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Slide.Age)","Disease.Status","Slide.Age",14,16,0.0743
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Tissue.Region) +      (1 | Slide.Age)","Disease.Status","Tissue.Region, Slide.Age",15,14,0.0743
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Slide.Age) +      (1 | Ganglia.Type)","Disease.Status","Slide.Age, Ganglia.Type",16,15,0.0743
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | T1D_Duration_Binned)","Disease.Status","T1D, Duration, Binned",17,18,0.9605
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status","Disease.Status","None",18,20,0.4818
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Tissue.Region) +      (1 | T1D_Duration_Binned)","Disease.Status","Tissue.Region, T1D, Duration, Binned",19,17,0.9554
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | T1D_Duration_Binned) +      (1 | Ganglia.Type)","Disease.Status","T1D, Duration, Binned, Ganglia.Type",20,19,0.9605
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Tissue.Region)","Disease.Status","Tissue.Region",21,21,0.3742
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Ganglia.Type)","Disease.Status","Ganglia.Type",22,23,0.4818
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Disease.Status + (1 | Tissue.Region) +      (1 | Ganglia.Type)","Disease.Status","Tissue.Region, Ganglia.Type",23,22,0.3742
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Tissue.Region","Tissue.Region","None",NA,NA,0.0862
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Donor.Age","Donor.Age","None",NA,NA,0
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ T1D_Duration_Binned","T1D_Duration_Binned","None",NA,NA,0
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Slide.Age","Slide.Age","None",NA,NA,0
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ Ganglia.Type","Ganglia.Type","None",NA,NA,0.7797
+"SNAP25.low.threshold.coverage","log_SNAP25.low.threshold.coverage ~ CaseID","CaseID","None",NA,NA,0

@@ -1,7 +1,0 @@
-"Model","Fixed_Effect","Random_Effects","Model_Fit_Rank","Model_Likelihood_Rank","Significance_of_Fixed_Effect"
-"NoRandom","Disease.Status","None",1,1,0.181767782469554
-"CaseID","Disease.Status","CaseID",2,3,0.562393602099178
-"SlideAge","Disease.Status","Slide.Age",4,4,0.0599279746194769
-"CaseID_SlideAge","Disease.Status","CaseID, Slide.Age",3,2,0.562393592096544
-"SlideAge_lm","Slide.Age","None",NA,NA,0.159809863194204
-"CaseID_lm","CaseID","None",NA,NA,0.00175336232640937

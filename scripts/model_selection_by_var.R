@@ -6,6 +6,10 @@ analyze_dependent_variable <- function(dependent_variable) {
   library(gridExtra)
   library(ggplot2)
   
+  #For saving:
+  cleaned_dependent_variable <- gsub("µ", "u", dependent_variable)
+  cleaned_dependent_variable <- gsub("\\.", "_", cleaned_dependent_variable)
+  
   # Load and preprocess the data
   data <- read.csv("data/HuBMAP_ganglia_data.csv")
   data <- data %>% filter(!CaseID == "")
@@ -127,14 +131,21 @@ analyze_dependent_variable <- function(dependent_variable) {
     Model_Likelihood_Rank = c(logLik_rank, rep(NA, length(single_effect_models))),
     Significance_of_Fixed_Effect = round(p_values, 4)
   )
-  
+  results_table <- results_table %>% dplyr::arrange(Model_Fit_Rank)
   # Write the results table to a CSV file
-  write.csv(results_table, file = paste0("results/", dependent_variable, "_model_results.csv"), row.names = FALSE)
+  write.csv(results_table, file = paste0("results/results_tables/", cleaned_dependent_variable, "_model_results.csv"), row.names = FALSE)
   
   # Generate and save plots
   effects <- c(random_effects, "Disease.Status")
   plot_list <- list()
   plots_per_page <- 4
+  # Define the directory path
+  dir_path <- paste0("results/plots/", cleaned_dependent_variable, "/")
+  
+  # Create the directory if it doesn't exist
+  if (!dir.exists(dir_path)) {
+    dir.create(dir_path, recursive = TRUE)
+  }
   
   for (i in seq_along(effects)) {
     effect <- effects[i]
@@ -144,7 +155,7 @@ analyze_dependent_variable <- function(dependent_variable) {
         geom_smooth(method = "lm") +
         labs(title = paste("Distribution of", dependent_variable, "by", effect), 
              x = effect, 
-             y = paste("log(", log_var_name, " coverage)")) +
+             y = log_var_name) +
         theme_minimal() +
         theme(axis.text.x = element_text(angle = 90, hjust = 1))
     } else {
@@ -152,7 +163,7 @@ analyze_dependent_variable <- function(dependent_variable) {
         geom_boxplot() +
         labs(title = paste("Distribution of", dependent_variable, "by", effect), 
              x = effect, 
-             y = paste("log(", log_var_name, " coverage)")) +
+             y = log_var_name) +
         theme_minimal() +
         theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
         scale_fill_discrete(name = effect)
@@ -163,8 +174,37 @@ analyze_dependent_variable <- function(dependent_variable) {
     if (i %% plots_per_page == 0 || i == length(effects)) {
       file_num <- ceiling(i / plots_per_page)
       grid_plot <- do.call(grid.arrange, c(plot_list[((file_num - 1) * plots_per_page + 1):i], ncol = 2, nrow = 2))
-      ggsave(filename = paste0("results/", dependent_variable, "_plots_page_", file_num, ".png"), plot = grid_plot, dpi = 300, width = 14, height = 10)
+      ggsave(filename = paste0("results/plots/",cleaned_dependent_variable,"/",cleaned_dependent_variable, "_plots_page_", file_num, ".png"), plot = grid_plot, dpi = 300, width = 14, height = 10)
       plot_list <- list()
     }
   }
-}
+  library(officer)
+  library(magrittr)
+  
+  # Define the directory containing the PNG files
+  png_dir <- paste0("results/plots/",cleaned_dependent_variable,"/")
+  
+  # List all PNG files in the directory
+  png_files <-list.files(png_dir, pattern = "\\.png$", full.names = TRUE)
+  
+  ## Create a new PowerPoint object
+  ppt <- read_pptx()
+  
+  # Add a title slide with the title text
+  ppt <- add_slide(ppt, layout = "Title and Content", master = "Office Theme") %>%
+    ph_with(value = fpar(ftext(paste("Effect of predictor variables on",dependent_variable),fp_text(bold = TRUE, font.size = 24))), location = ph_location_type(type = "title"))
+  
+  # Loop through each PNG file and add it as a slide
+  for (png_file in png_files) {
+    ppt <- add_slide(ppt, layout = "Blank", master = "Office Theme") %>%
+      ph_with(value = external_img(png_file), location = ph_location_fullsize())
+  }
+  
+  # Define the output PowerPoint file path
+  output_pptx <- paste0(png_dir,cleaned_dependent_variable,"_plots.pptx")
+  
+  # Save the PowerPoint presentation
+  print(ppt, target = output_pptx)
+  }
+
+

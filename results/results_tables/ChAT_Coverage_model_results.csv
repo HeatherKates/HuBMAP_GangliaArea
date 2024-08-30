@@ -1,0 +1,30 @@
+"Dependent.Variable","Model","Fixed_Effect","Random_Effects","Model_Fit_Rank","Model_Likelihood_Rank","Significance_of_Fixed_Effect"
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | T1D_Duration_Binned) +      (1 | CaseID)","Disease.Status","T1D, Duration, Binned, CaseID",1,1,0.3881
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | CaseID)","Disease.Status","CaseID",2,6,0.0329
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Ganglia.Type) + (1 |      CaseID)","Disease.Status","Ganglia.Type, CaseID",3,2,0.0311
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Donor.Age)","Disease.Status","Donor.Age",4,11,9e-04
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Donor.Age) + (1 | Ganglia.Type)","Disease.Status","Donor.Age, Ganglia.Type",5,3,0.001
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      CaseID)","Disease.Status","Tissue.Region, CaseID",6,4,0.0285
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Donor.Age) + (1 | T1D_Duration_Binned)","Disease.Status","Donor.Age, T1D, Duration, Binned",7,5,0.2678
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Slide.Age) + (1 | CaseID)","Disease.Status","Slide.Age, CaseID",8.5,7.5,0.0329
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | CaseID) + (1 | Slide.Age)","Disease.Status","CaseID, SlideAge",8.5,7.5,0.0329
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Donor.Age) + (1 | CaseID)","Disease.Status","Donor.Age, CaseID",10,9,0.0329
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      Donor.Age)","Disease.Status","Tissue.Region, Donor.Age",11,10,0.0015
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Donor.Age) + (1 | Slide.Age)","Disease.Status","Donor.Age, Slide.Age",12,12,9e-04
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | T1D_Duration_Binned)","Disease.Status","T1D, Duration, Binned",13,16,0.117
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      T1D_Duration_Binned)","Disease.Status","Tissue.Region, T1D, Duration, Binned",14,13,0.1083
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | T1D_Duration_Binned) +      (1 | Slide.Age)","Disease.Status","T1D, Duration, Binned, Slide.Age",15,14,0.4163
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | T1D_Duration_Binned) +      (1 | Ganglia.Type)","Disease.Status","T1D, Duration, Binned, Ganglia.Type",16,15,0.1135
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status","Disease.Status","None",17,20,0
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Tissue.Region)","Disease.Status","Tissue.Region",18,19,0
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      Slide.Age)","Disease.Status","Tissue.Region, Slide.Age",19,17,0.029
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Tissue.Region) + (1 |      Ganglia.Type)","Disease.Status","Tissue.Region, Ganglia.Type",20,18,0
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Slide.Age)","Disease.Status","Slide.Age",21,22,0.1615
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Ganglia.Type)","Disease.Status","Ganglia.Type",22,23,0
+"ChAT.Coverage","log_ChAT.Coverage ~ Disease.Status + (1 | Slide.Age) + (1 | Ganglia.Type)","Disease.Status","Slide.Age, Ganglia.Type",23,21,0.1706
+"ChAT.Coverage","log_ChAT.Coverage ~ Tissue.Region","Tissue.Region","None",NA,NA,0.1076
+"ChAT.Coverage","log_ChAT.Coverage ~ Donor.Age","Donor.Age","None",NA,NA,0.458
+"ChAT.Coverage","log_ChAT.Coverage ~ T1D_Duration_Binned","T1D_Duration_Binned","None",NA,NA,0
+"ChAT.Coverage","log_ChAT.Coverage ~ Slide.Age","Slide.Age","None",NA,NA,0
+"ChAT.Coverage","log_ChAT.Coverage ~ Ganglia.Type","Ganglia.Type","None",NA,NA,0.3888
+"ChAT.Coverage","log_ChAT.Coverage ~ CaseID","CaseID","None",NA,NA,0
